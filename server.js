@@ -9,7 +9,9 @@ const app = express();
 //? http server
 const server = createServer(app);
 const dirName = dirname(fileURLToPath(import.meta.url));
-const io = new Server(server);
+const io = new Server(server, {
+  connectionStateRecovery: {},
+});
 
 //! ==> / is a rout handler
 //* initialize app to be a function handler - we supply this app to http server
